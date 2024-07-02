@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../desarrolloEndFront/EntregaFinalMagis"
+		},
+		{
+			"path": "../Entregable1Magis"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Entregable2Magis"
+	}
+}

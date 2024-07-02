@@ -1,0 +1,91 @@
+/* styles.css */
+
+body {
+    background-color: #8ec573; /* Verde claro */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    background-color: #006400; /* Verde oscuro */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.header img {
+    align-self: flex-start; /* Alinear la imagen a la izquierda */
+    height: 100px; /* Ajusta según el tamaño del logo */
+    margin-bottom: 10px; /* Espacio entre el logo y el título */
+}
+
+.titulo-pagina {
+    margin: 0;
+}
+
+.navegador {
+    margin-top: 10px;
+}
+.flex-container{
+    margin: 4px;
+    border: 1px solid #031703;
+    padding: 2px;
+    background-color: #459a45;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+
+}
+#product-list{
+    margin: 4px;
+    padding: 2px;
+    border: 1px solid #031703;
+}
+#venta-list{
+    margin: 4px;
+    padding: 2px;
+    border: 1px solid #031703;
+
+}
+button {
+    background-color: #8ec573;
+    color: rgb(7, 7, 7);
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #137616;
+}
+.dark-mode body {
+    background-color: #000;
+}
+
+.dark-mode .header {
+    background-color: #000;
+}
+.Botton {
+    background-color: #006400; /* Verde oscuro */
+    color: white;
+    display: flex;
+   justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+.Botton img {
+    
+    height: 100px; /* Ajusta según el tamaño del logo */
+    margin-bottom: 10px; /* Espacio entre el logo y el título */
+}
+
