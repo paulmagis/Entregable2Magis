@@ -89,3 +89,44 @@ button:hover {
     margin-bottom: 10px; /* Espacio entre el logo y el título */
 }
 
+.hidden {
+    display: none;
+}
+
+#form-container {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+}
+
+#form-container form {
+    margin-bottom: 20px;
+}
+
+#form-container form h3 {
+    margin-top: 0;
+}
+
+#form-container form label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+#form-container form input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+#form-container form button {
+    padding: 10px 20px;
+    background-color: #8ec573;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+#form-container form button:hover {
+    background-color: #137616;
+}

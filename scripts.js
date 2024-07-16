@@ -26,45 +26,17 @@ const saveToLocalStorage = () => {
     localStorage.setItem('productos', JSON.stringify(productos));
 }
 
+// Manejo de formularios y botones
 document.getElementById('btn1').addEventListener('click', () => {
-    const id = parseInt(prompt("Ingrese ID producto"));
-    const nombre = prompt("Ingrese Nombre del producto");
-    const precio = parseFloat(prompt("Ingrese Precio del producto"));
-    const cantidad = parseInt(prompt("Ingrese la cantidad del producto"));
-    const producto = {id: id, nombre: nombre, precio: precio, cantidad: cantidad};
-    productos.push(producto);
-    saveToLocalStorage();
-    updateProductList();
-    alert("Producto agregado: id:" + producto.id + " nombre :" + producto.nombre);
-    console.log("Lista actualizada de productos:", productos);
+    toggleFormVisibility('add-product-form');
 });
 
 document.getElementById('btn2').addEventListener('click', () => {
-    const productoBuscado = prompt("¿Qué producto quiere comprar?");
-    const index = getProductIndexByName(productoBuscado);
-    if (index !== -1) {
-        const producto = productos[index];
-        alert(`La venta es de $${producto.precio}`);
-        productos[index].cantidad -= 1;
-        saveToLocalStorage();
-        updateProductList();
-    } else {
-        alert("Lo lamentamos, no tenemos este producto");
-    }
+    toggleFormVisibility('sell-product-form');
 });
 
 document.getElementById('btn3').addEventListener('click', () => {
-    const productoBuscado = prompt("Ingrese el nombre del producto para cambiar el precio");
-    const index = getProductIndexByName(productoBuscado);
-    if (index !== -1) {
-        const nuevoPrecio = parseFloat(prompt("Ingrese el nuevo precio del producto"));
-        productos[index].precio = nuevoPrecio;
-        saveToLocalStorage();
-        updateProductList();
-        alert(`El nuevo precio de ${productoBuscado} es $${productos[index].precio}`);
-    } else {
-        alert("Producto no encontrado");
-    }
+    toggleFormVisibility('change-price-form');
 });
 
 document.getElementById('btn4').addEventListener('click', () => {
@@ -97,3 +69,63 @@ const loadDarkMode = () => {
 // Inicializar la lista de productos en la página
 updateProductList();
 loadDarkMode(); // Aplicar modo oscuro si estaba activado previamente
+
+// Funciones de formulario
+const toggleFormVisibility = (formId) => {
+    document.querySelectorAll('#form-container form').forEach(form => {
+        if (form.id === formId) {
+            form.classList.toggle('hidden');
+        } else {
+            form.classList.add('hidden');
+        }
+    });
+};
+
+document.getElementById('add-product-form').addEventListener('submit', (event) => {
+    event.preventDefault();
+    const id = parseInt(document.getElementById('product-id').value);
+    const nombre = document.getElementById('product-name').value;
+    const precio = parseFloat(document.getElementById('product-price').value);
+    const cantidad = parseInt(document.getElementById('product-quantity').value);
+    const producto = {id: id, nombre: nombre, precio: precio, cantidad: cantidad};
+    productos.push(producto);
+    saveToLocalStorage();
+    updateProductList();
+    alert("Producto agregado: id:" + producto.id + " nombre :" + producto.nombre);
+    document.getElementById('add-product-form').reset();
+    toggleFormVisibility('add-product-form');
+});
+
+document.getElementById('sell-product-form').addEventListener('submit', (event) => {
+    event.preventDefault();
+    const productoBuscado = document.getElementById('sell-product-name').value;
+    const index = getProductIndexByName(productoBuscado);
+    if (index !== -1) {
+        const producto = productos[index];
+        alert(`La venta es de $${producto.precio}`);
+        productos[index].cantidad -= 1;
+        saveToLocalStorage();
+        updateProductList();
+    } else {
+        alert("Lo lamentamos, no tenemos este producto");
+    }
+    document.getElementById('sell-product-form').reset();
+    toggleFormVisibility('sell-product-form');
+});
+
+document.getElementById('change-price-form').addEventListener('submit', (event) => {
+    event.preventDefault();
+    const productoBuscado = document.getElementById('change-product-name').value;
+    const index = getProductIndexByName(productoBuscado);
+    if (index !== -1) {
+        const nuevoPrecio = parseFloat(document.getElementById('new-product-price').value);
+        productos[index].precio = nuevoPrecio;
+        saveToLocalStorage();
+        updateProductList();
+        alert(`El nuevo precio de ${productoBuscado} es $${productos[index].precio}`);
+    } else {
+        alert("Producto no encontrado");
+    }
+    document.getElementById('change-price-form').reset();
+    toggleFormVisibility('change-price-form');
+});

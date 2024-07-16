@@ -26,12 +26,42 @@
         </div>
         <div>
             <h2>Tu Carrito</h2>
-        <div id="venta-list">
-            
-            
-        </div> 
+            <div id="venta-list"></div> 
         </div>  
     </div>
+    
+    <!-- Formularios ocultos -->
+    <div id="form-container">
+        <form id="add-product-form" class="hidden">
+            <h3>Agregar Producto</h3>
+            <label for="product-id">ID:</label>
+            <input type="number" id="product-id" required>
+            <label for="product-name">Nombre:</label>
+            <input type="text" id="product-name" required>
+            <label for="product-price">Precio:</label>
+            <input type="number" id="product-price" required>
+            <label for="product-quantity">Cantidad:</label>
+            <input type="number" id="product-quantity" required>
+            <button type="submit">Agregar Producto</button>
+        </form>
+
+        <form id="sell-product-form" class="hidden">
+            <h3>Vender Producto</h3>
+            <label for="sell-product-name">Nombre del Producto:</label>
+            <input type="text" id="sell-product-name" required>
+            <button type="submit">Vender Producto</button>
+        </form>
+
+        <form id="change-price-form" class="hidden">
+            <h3>Cambiar Precio del Producto</h3>
+            <label for="change-product-name">Nombre del Producto:</label>
+            <input type="text" id="change-product-name" required>
+            <label for="new-product-price">Nuevo Precio:</label>
+            <input type="number" id="new-product-price" required>
+            <button type="submit">Cambiar Precio</button>
+        </form>
+    </div>
+
     <Section class="Botton">
         <div>
               <img src="../imagenes/Carpeta.png" alt="imagen de carpeta">
